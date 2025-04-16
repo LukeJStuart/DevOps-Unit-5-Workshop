@@ -2,6 +2,8 @@
 
 Welcome to the Unit 5 Workshop!
 
+![CI Workflow](https://github.com/LukeJStuart/DevOps-Unit-5-Workshop/actions/workflows/continuous-integration-workflow.yml/badge.svg)
+
 ## Our objectives
 The objectives for today are:
 
