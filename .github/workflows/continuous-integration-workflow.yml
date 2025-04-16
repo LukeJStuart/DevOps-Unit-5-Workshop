@@ -7,8 +7,8 @@ on:
   pull_request:
 
 jobs:
-  build:
-    name: Build and Test
+  build-dotnet:
+    name: Build and Test C#
     runs-on: ubuntu-latest
 
     steps:
@@ -20,6 +20,14 @@ jobs:
 
       - name: Run C# tests
         run: dotnet test
+
+  build-typescript:
+    name: Build and Test TypeScript
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
 
       - name: Install dependencies (TypeScript project)
         run: npm install
