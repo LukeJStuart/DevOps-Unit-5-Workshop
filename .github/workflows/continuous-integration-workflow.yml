@@ -1,0 +1,38 @@
+name: Continuous Integration
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build:
+    name: Build and Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build C# code
+        run: dotnet build
+
+      - name: Run C# tests
+        run: dotnet test
+
+      - name: Install dependencies (TypeScript project)
+        run: npm install
+        working-directory: DotnetTemplate.Web
+
+      - name: Build TypeScript code
+        run: npm run build
+        working-directory: DotnetTemplate.Web
+
+      - name: Lint TypeScript code
+        run: npm run lint
+        working-directory: DotnetTemplate.Web
+
+      - name: Run TypeScript tests
+        run: npm run test
+        working-directory: DotnetTemplate.Web
